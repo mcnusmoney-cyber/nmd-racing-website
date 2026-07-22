@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase";
 import Header from "@/components/layout/Header";
 import Hero from "@/components/home/Hero";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
@@ -10,6 +11,7 @@ import BrandStory from "@/components/home/BrandStory";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
+  console.log(supabase);
   return (
     <main className="bg-black text-white overflow-hidden">
 

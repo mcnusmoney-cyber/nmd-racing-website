@@ -96,5 +96,8 @@ export const forza: Product = {
     "Honda FORZA 350 Premium CNC Wheel | NMD Racing",
 
   seoDescription:
-    "Premium CNC Motorcycle Wheels for Honda FORZA 350 by NMD Racing.",
+  "Premium CNC Motorcycle Wheels for Honda FORZA 350 by NMD Racing.",
+
+series: "RONIN VI",
+generation: "V1",
 };

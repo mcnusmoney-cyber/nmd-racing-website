@@ -1,3 +1,9 @@
+enum UserRole {
+  OWNER
+ STAFF
+  DEALER
+}
+
 generator client {
   provider = "prisma-client-js"
 }

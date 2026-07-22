@@ -33,27 +33,29 @@ export default async function DealersPage() {
 
           <div className="bg-zinc-900 rounded-3xl border border-zinc-800 p-6">
             <div className="text-zinc-500">
-              Total Sales
+              Active Dealers
             </div>
 
             <div className="text-4xl font-bold text-green-400 mt-2">
-              {dealers.reduce(
-                (sum, dealer) => sum + dealer.sales,
-                0
-              )}
+              {
+                dealers.filter(
+                  dealer => dealer.status === "ACTIVE"
+                ).length
+              }
             </div>
           </div>
 
           <div className="bg-zinc-900 rounded-3xl border border-zinc-800 p-6">
             <div className="text-zinc-500">
-              Warranty Registrations
+              Suspended Dealers
             </div>
 
-            <div className="text-4xl font-bold text-yellow-400 mt-2">
-              {dealers.reduce(
-                (sum, dealer) => sum + dealer.warranties,
-                0
-              )}
+            <div className="text-4xl font-bold text-red-400 mt-2">
+              {
+                dealers.filter(
+                  dealer => dealer.status !== "ACTIVE"
+                ).length
+              }
             </div>
           </div>
 
@@ -80,9 +82,9 @@ export default async function DealersPage() {
           <div className="grid grid-cols-5 gap-4 p-5 font-bold bg-zinc-950 border-b border-zinc-800">
             <div>Dealer Name</div>
             <div>Province</div>
-            <div>Sales</div>
-            <div>Warranty</div>
-            <div>Claims</div>
+            <div>Phone</div>
+            <div>Status</div>
+            <div>Created</div>
           </div>
 
           {dealers.map((dealer) => (
@@ -91,16 +93,34 @@ export default async function DealersPage() {
               className="grid grid-cols-5 gap-4 p-5 border-b border-zinc-800"
             >
               <div>{dealer.name}</div>
+
               <div>{dealer.province}</div>
-              <div>{dealer.sales}</div>
-              <div>{dealer.warranties}</div>
-              <div>{dealer.claims}</div>
+
+              <div>{dealer.phone}</div>
+
+              <div>
+                <span
+                  className={`px-3 py-1 rounded-full text-sm ${
+                    dealer.status === "ACTIVE"
+                      ? "bg-green-500/20 text-green-400"
+                      : "bg-red-500/20 text-red-400"
+                  }`}
+                >
+                  {dealer.status}
+                </span>
+              </div>
+
+              <div>
+                {new Date(
+                  dealer.createdAt
+                ).toLocaleDateString("th-TH")}
+              </div>
             </div>
           ))}
 
           {dealers.length === 0 && (
             <div className="p-20 text-center text-zinc-500">
-              No Dealers Found
+              No dealers found
             </div>
           )}
 
