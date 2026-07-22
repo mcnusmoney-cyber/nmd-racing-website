@@ -1,0 +1,55 @@
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+
+    const customer = await prisma.customer.create({
+      data: {
+        name: body.name,
+        phone: body.phone,
+        address: body.address,
+        motorcycle: body.motorcycle,
+        plate: body.plate,
+      },
+    });
+
+    const warranty = await prisma.warranty.create({
+      data: {
+        warrantyId:
+          "NMD-" + Math.floor(10000000 + Math.random() * 90000000),
+
+        product: body.product,
+        color: body.color,
+        serialNumber: body.serialNumber,
+
+        purchaseDate: new Date(),
+
+        expiryDate: new Date(
+          new Date().setFullYear(
+            new Date().getFullYear() + 1
+          )
+        ),
+
+        customerId: customer.id,
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      data: warranty,
+    });
+  } catch (error) {
+    console.log(error);
+
+    return NextResponse.json(
+      {
+        success: false,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+}

@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id         String  @id @default(cuid())
+  name       String
+  phone      String
+  address    String?
+  motorcycle String?
+  plate      String?
+
+  warranties Warranty[]
+
+  createdAt DateTime @default(now())
+}
+
+model Warranty {
+  id         String @id @default(cuid())
+  warrantyId String @unique
+
+  customerName String
+  phone        String
+  plateNumber  String
+
+  vehicle      String
+  wheel        String
+  serialNumber String? @unique
+
+  dealer String
+
+  installDate DateTime
+  expiryDate  DateTime?
+
+  slipImage String?
+
+  status String @default("ACTIVE")
+
+  customerId String?
+  customer   Customer? @relation(fields: [customerId], references: [id])
+
+  claims Claim[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Claim {
+  id      String @id @default(cuid())
+  claimId String @unique
+
+  issue String
+  image String?
+
+  status String @default("RECEIVED")
+
+  warrantyId String
+  warranty   Warranty @relation(fields: [warrantyId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Dealer {
+  id       String  @id @default(cuid())
+  name     String
+  province String
+  phone    String?
+  facebook String?
+
+  sales      Int @default(0)
+  warranties Int @default(0)
+  claims     Int @default(0)
+  target     Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Garage {
+  id     String @id @default(cuid())
+  userId String
+
+  vehicle    String
+  wheelModel String
+  wheelColor String
+
+  installDate DateTime
+  warrantyEnd DateTime
+
+  dealer String
+
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,25 @@
+:root{
+  /* Brand */
+
+  --color-primary:#7C3AED;
+  --color-primary-light:#A855F7;
+
+  --color-bg:#050505;
+  --color-surface:#101010;
+  --color-card:#151515;
+
+  --color-border:#262626;
+
+  --color-text:#FFFFFF;
+  --color-text-muted:#9CA3AF;
+
+  --radius-sm:12px;
+  --radius-md:18px;
+  --radius-lg:28px;
+
+  --shadow-glow:
+      0 0 60px rgba(124,58,237,.28);
+
+  --transition:
+      .35s cubic-bezier(.4,0,.2,1);
+}
