@@ -1,0 +1,114 @@
+@import "./theme.css";
+@import "tailwindcss";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background:
+    radial-gradient(circle at top right,
+      rgba(139,92,246,.12),
+      transparent 35%),
+
+    radial-gradient(circle at bottom left,
+      rgba(124,58,237,.08),
+      transparent 30%),
+
+    #000;
+
+  color: white;
+
+  overflow-x: hidden;
+}
+::selection{
+  background:#7c3aed;
+  color:white;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+.bg-grid{
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+  background-size:60px 60px;
+}
+@keyframes float {
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+.animate-float{
+  animation:float 5s ease-in-out infinite;
+}
+.glow-purple{
+  box-shadow:
+    0 0 40px rgba(168,85,247,.35);
+}
+
+.glow-text{
+  text-shadow:
+    0 0 20px rgba(168,85,247,.4);
+}
+.glass{
+  background:rgba(255,255,255,.05);
+
+  backdrop-filter:blur(20px);
+
+  border:1px solid rgba(255,255,255,.08);
+}
+.text-gradient{
+
+  background:
+  linear-gradient(
+    90deg,
+    #ffffff,
+    #a855f7
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+}
+.section-divider{
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(168,85,247,.6),
+    transparent
+  );
+}
