@@ -1,132 +1,29 @@
-"use client";
+import Link from "next/link";
 
-const gallery = [
-  "/gallery/forza-1.webp",
-  "/gallery/forza-2.webp",
-  "/gallery/xmax-1.webp",
-  "/gallery/pcx-1.webp",
-  "/gallery/giorno-1.webp",
-  "/gallery/lead-1.webp",
+const builds = [
+  { src: "/gallery/forza-purple.JPG", alt: "Honda Forza ติดตั้งล้อสีม่วงที่ NMD Racing" },
+  { src: "/gallery/forza1.JPG", alt: "ผลงานรถ Honda Forza จาก NMD Racing" },
+  { src: "/gallery/xmax-premium.JPG", alt: "ผลงานรถ Yamaha XMAX จาก NMD Racing" },
 ];
 
 export default function RiderGallery() {
   return (
-    <section className="relative bg-zinc-950 py-32 overflow-hidden">
-
-      {/* Background Glow */}
-      <div className="absolute left-0 top-0 w-[700px] h-[700px] bg-purple-600/10 blur-[220px]" />
-      <div className="absolute right-0 bottom-0 w-[700px] h-[700px] bg-fuchsia-600/10 blur-[220px]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="text-center mb-20">
-
-          <div className="
-            text-purple-400
-            text-sm
-            tracking-[0.45em]
-            uppercase
-            mb-4
-          ">
-            NMD COMMUNITY
-          </div>
-
-          <h2 className="
-            text-5xl
-            md:text-7xl
-            font-black
-            mb-6
-          ">
-            RIDER
-            <span className="text-purple-400">
-              {" "}GALLERY
-            </span>
-          </h2>
-
-          <p className="
-            text-zinc-400
-            text-lg
-            max-w-3xl
-            mx-auto
-          ">
-            Built by riders. Inspired by journeys.
-            Discover real motorcycles running NMD Racing wheels.
-          </p>
-
-        </div>
-
-        {/* Gallery */}
-        <div className="
-          grid
-          grid-cols-2
-          md:grid-cols-3
-          gap-6
-        ">
-
-          {gallery.map((image) => (
-            <div
-              key={image}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-[28px]
-                border
-                border-purple-500/20
-                bg-black
-              "
-            >
-              <img
-                src={image}
-                alt="NMD Rider"
-                className="
-                  w-full
-                  aspect-square
-                  object-cover
-                  transition-all
-                  duration-700
-                  group-hover:scale-110
-                "
-              />
-
-              <div className="
-                absolute
-                inset-0
-                bg-gradient-to-t
-                from-black/80
-                to-transparent
-              " />
-
-              <div className="
-                absolute
-                bottom-5
-                left-5
-              ">
-                <div className="
-                  text-purple-400
-                  text-xs
-                  tracking-[0.35em]
-                  mb-2
-                ">
-                  NMD RIDER
-                </div>
-
-                <div className="
-                  text-xl
-                  font-bold
-                ">
-                  Built For Riders
-                </div>
-              </div>
-
+    <section aria-labelledby="gallery-title" className="bg-black py-16 text-white sm:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <p className="text-sm font-bold uppercase tracking-[.2em] text-purple-300">NMD BUILDS</p>
+        <h2 id="gallery-title" className="mt-3 text-3xl font-black sm:text-5xl">ดูงานติดตั้งจริง</h2>
+        <p className="mt-4 text-base text-zinc-300">ภาพผลงานจากรถที่แต่งกับ NMD Racing</p>
+        <div className="mt-9 grid gap-5 sm:grid-cols-3">
+          {builds.map((build) => (
+            <div key={build.src} className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
+              <img src={build.src} alt={build.alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
             </div>
           ))}
-
         </div>
-
+        <Link href="/gallery" className="mt-7 inline-block font-bold text-purple-300 underline underline-offset-4 hover:text-white">
+          ดูผลงานเพิ่มเติม
+        </Link>
       </div>
-
     </section>
   );
 }
