@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-black text-white">
       <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
-        <img src="/hero/forza-white-purple-shop.webp" alt="" className="h-full w-full object-cover object-center" />
+        <img src="/hero/nmd-forza-purple-hero.webp" alt="" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/15" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-8 overflow-hidden rounded-2xl border border-purple-500/20 lg:hidden">
-          <img src="/hero/forza-white-purple-shop.webp" alt="Honda Forza ติดตั้งล้อ NMD Racing สีม่วง" className="aspect-[4/3] w-full object-cover" />
+          <img src="/hero/nmd-forza-purple-hero.webp" alt="Honda Forza ติดตั้งล้อ NMD Racing สีม่วง" className="aspect-[4/3] w-full object-cover" />
         </div>
       </div>
     </section>
