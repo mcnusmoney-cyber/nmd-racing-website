@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-8 overflow-hidden rounded-2xl border border-purple-500/20 lg:hidden">
-          <img src="/hero/nmd-forza-purple-hero.webp" alt="Honda Forza ติดตั้งล้อ NMD Racing สีม่วง" className="aspect-[4/3] w-full object-cover" />
+          <img src="/hero/nmd-forza-purple-hero.webp" alt="Honda Forza ติดตั้งล้อ NMD Racing สีม่วง" className="aspect-[4/3] w-full object-cover object-right" />
         </div>
       </div>
     </section>
