@@ -1,290 +1,57 @@
-"use client";
-
 import Link from "next/link";
+
+const models = [
+  { name: "FORZA 350", href: "#forza" },
+  { name: "XMAX 300", href: "#xmax" },
+  { name: "PCX 160", href: "#pcx" },
+  { name: "GIORNO 125", href: "/contact" },
+  { name: "LEAD 125", href: "/contact" },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white">
-
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage:
-              "url('/backgrounds/carbon-purple.webp')",
-          }}
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black" />
-
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-600/20 blur-[180px]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/20 blur-[180px]" />
+    <section className="relative overflow-hidden bg-black text-white">
+      <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+        <img src="/hero/nmd-forza-purple-hero.webp" alt="" className="h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-24">
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
-
-          {/* LEFT */}
-          <div>
-
-            <div className="
-              inline-flex
-              px-5
-              py-2
-              rounded-full
-              border
-              border-purple-500/40
-              bg-purple-500/10
-              text-purple-300
-              text-xs
-              tracking-[0.35em]
-              uppercase
-              mb-6
-            ">
-              NMD RACING
-            </div>
-
-            <div className="
-              mb-4
-              text-purple-300
-              text-xs
-              md:text-sm
-              tracking-[0.6em]
-              uppercase
-              font-semibold
-            ">
-              走りの美学 • JAPANESE PERFORMANCE CULTURE
-            </div>
-
-            <h1 className="
-              text-5xl
-              md:text-7xl
-              font-black
-              leading-none
-              mb-8
-            ">
-              BUILT FOR
-              <br />
-
-              <span className="
-                bg-gradient-to-r
-                from-purple-400
-                to-fuchsia-500
-                bg-clip-text
-                text-transparent
-              ">
-                RIDERS
-              </span>
-
-              <br />
-
-              INSPIRED BY
-              <br />
-              THE NOMAD
-            </h1>
-
-            <p className="
-              text-zinc-400
-              text-lg
-              leading-relaxed
-              max-w-xl
-              mb-10
-            ">
-              Premium CNC Motorcycle Wheels engineered for riders
-              who demand performance, precision and style.
-            </p>
-
-            {/* CTA */}
-            <div className="
-              flex
-              flex-wrap
-              gap-4
-              mb-12
-            ">
-              <Link
-                href="/products"
-                className="
-                  px-8
-                  py-4
-                  rounded-full
-                  bg-purple-600
-                  hover:bg-purple-500
-                  transition
-                  font-bold
-                  shadow-[0_0_40px_rgba(125,38,205,0.5)]
-                "
-              >
-                Explore Products
-              </Link>
-
-              <Link
-                href="/warranty/register"
-                className="
-                  px-8
-                  py-4
-                  rounded-full
-                  border
-                  border-purple-500
-                  hover:bg-purple-500/20
-                  transition
-                  font-bold
-                "
-              >
-                Warranty Registration
-              </Link>
-
-              <Link
-                href="/claim"
-                className="
-                  px-8
-                  py-4
-                  rounded-full
-                  border
-                  border-red-500
-                  hover:bg-red-500/20
-                  transition
-                  font-bold
-                "
-              >
-                Submit Claim
-              </Link>
-            </div>
-
-            {/* STATS */}
-            <div className="grid grid-cols-4 gap-6">
-
-              <div>
-                <div className="text-4xl font-black text-purple-400">
-                  1000+
-                </div>
-                <div className="text-zinc-500">
-                  Pairs Produced
-                </div>
-              </div>
-
-              <div>
-                <div className="text-4xl font-black text-purple-400">
-                  20+
-                </div>
-                <div className="text-zinc-500">
-                  Dealers
-                </div>
-              </div>
-
-              <div>
-                <div className="text-4xl font-black text-purple-400">
-                  1 Year
-                </div>
-                <div className="text-zinc-500">
-                  Warranty
-                </div>
-              </div>
-
-              <div>
-                <div className="text-4xl font-black text-purple-400">
-                  8
-                </div>
-                <div className="text-zinc-500">
-                  Colors
-                </div>
-              </div>
-
-            </div>
-
+      <div className="relative mx-auto flex min-h-[640px] max-w-7xl flex-col justify-center px-6 pb-12 pt-14 lg:min-h-[610px] lg:pb-14">
+        <div className="max-w-2xl">
+          <p className="text-sm font-bold uppercase tracking-[.2em] text-purple-300">NMD RACING / RONIN SERIES</p>
+          <h1 className="mt-5 text-4xl font-black leading-[1.16] sm:text-5xl lg:text-6xl">
+            ล้อ CNC ที่ใช่<br />
+            <span className="text-purple-400">สำหรับรถของคุณ</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-8 text-zinc-200 sm:text-lg">
+            เลือกทรงและสีล้อ NMD ให้ตรงรุ่นรถของคุณ พร้อมคำแนะนำเรื่องการติดตั้งและการรับประกัน 1 ปีจากทีมงานที่บางพลี
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="#choose-bike" className="rounded-xl bg-purple-600 px-7 py-4 text-base font-bold transition hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-300">
+              เลือกรุ่นรถ
+            </Link>
+            <Link href="/contact" className="rounded-xl border border-purple-400 px-7 py-4 text-base font-bold transition hover:bg-purple-500/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-300">
+              สอบถามทีม NMD
+            </Link>
           </div>
+        </div>
 
-          {/* RIGHT */}
-          <div className="
-            relative
-            flex
-            justify-center
-            items-center
-          ">
-
-            <div className="
-              absolute
-              w-[600px]
-              h-[600px]
-              rounded-full
-              bg-purple-600/20
-              blur-[160px]
-            " />
-
-            <img
-              src="/hero/forza-white-purple-shop.webp"
-              alt="NMD Hero"
-              className="
-                relative
-                z-10
-                rounded-3xl
-                shadow-[0_0_100px_rgba(125,38,205,0.6)]
-                border
-                border-purple-500/30
-                w-full
-                max-w-[720px]
-              "
-            />
-
-            {/* Floating Card */}
-            <div className="
-              absolute
-              bottom-6
-              right-6
-              z-20
-              bg-black/70
-              backdrop-blur-xl
-              border
-              border-purple-500/30
-              rounded-3xl
-              px-5
-              py-4
-              shadow-[0_0_40px_rgba(168,85,247,0.25)]
-              hidden lg:block
-            ">
-              <div className="text-purple-400 font-bold text-sm">
-                RONIN SERIES
-              </div>
-
-              <div className="
-                text-zinc-300
-                text-xs
-                mt-2
-                space-y-1
-              ">
-                <div>6061-T6 CNC Aluminum</div>
-                <div>Japanese Inspired Design</div>
-                <div>1 Year Warranty</div>
-                <div>Built For Riders</div>
-              </div>
-            </div>
-
+        <div id="choose-bike" className="mt-10 scroll-mt-28">
+          <h2 className="sr-only">เลือกรุ่นรถของคุณ</h2>
+          <div className="flex flex-wrap gap-2">
+            {models.map((model) => (
+              <Link key={model.name} href={model.href} className="rounded-full border border-white/25 bg-zinc-900/80 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-purple-400 hover:bg-purple-500/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300">
+                {model.name}
+              </Link>
+            ))}
           </div>
-
         </div>
 
-      </div>
-
-      {/* Scroll */}
-      <div className="
-        absolute
-        bottom-8
-        left-1/2
-        -translate-x-1/2
-        text-purple-400
-        animate-bounce
-        z-20
-      ">
-        <div className="text-xs tracking-[0.4em]">
-          SCROLL
-        </div>
-
-        <div className="text-center text-2xl">
-          ↓
+        <div className="mt-8 overflow-hidden rounded-2xl border border-purple-500/20 lg:hidden">
+          <img src="/hero/nmd-forza-purple-hero.webp" alt="Honda Forza ติดตั้งล้อ NMD Racing สีม่วง" className="aspect-[4/3] w-full object-cover object-right" />
         </div>
       </div>
-
     </section>
   );
 }
